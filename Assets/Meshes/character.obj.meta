@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: 0f33c1f9748553748a9bdd317156f45a
+guid: 411b2cee7c159f7479bdc38325fcaf09
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: char8
+    100000: character
     100002: //RootNode
-    400000: char8
+    400000: character
     400002: //RootNode
-    2100000: char8Mat
-    2300000: char8
-    3300000: char8
-    4300000: char8
+    2100000: characterMat
+    2300000: character
+    3300000: character
+    4300000: character
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: char8Mat
+      name: characterMat
     second: {fileID: 2100000, guid: 7e652d19c5b1c1a43bede0f0434a6c0e, type: 2}
   materials:
     importMaterials: 1
