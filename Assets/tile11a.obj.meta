@@ -1,18 +1,22 @@
 fileFormatVersion: 2
-guid: 27481e4acdd94304cb1d5b00f2893c60
+guid: 7243559f0b88fa74088abe614d56db04
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: env
+    100000: tile11a
     100002: //RootNode
-    400000: env
+    400000: tile11a
     400002: //RootNode
-    2100000: envMat
-    2300000: env
-    3300000: env
-    4300000: env
-    9500000: //RootNode
-  externalObjects: {}
+    2100000: tile11aMat
+    2300000: tile11a
+    3300000: tile11a
+    4300000: tile11a
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tile11aMat
+    second: {fileID: 2100000, guid: 8dcd411fcbae704479d4dbcc9acbb35a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -64,7 +68,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -89,7 +93,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
