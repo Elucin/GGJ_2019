@@ -231,12 +231,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1228713427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca0515affa22cb489c144eede833749, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ee7e4d3213287f4b9509184a935b7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  acceleration: 6
-  jumpHight: 800
+  speed: 5
+  acceleration: 15
+  jumpHight: 1000
 --- !u!54 &1228713429
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1228713427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c75fc3d166bef479c63b89bf2fffdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d40529675e972c4f9d358b1e9baa879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1445611572
@@ -419,8 +419,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0d65103ca7bda48853ca8dee926a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shiftSpeed: 0.5
+  shiftTime: 0.6
   staticOffset: {x: 0, y: 0, z: -10}
+  dynamicOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1528886573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1336673467108072, guid: 5b94a46508ae1c04ab9107af35e0b3d7,
