@@ -18,16 +18,6 @@ public class CameraController : MonoBehaviour {
 	
 	void Update ()
     {
-        /*
-        if (Input.GetAxis("Horizontal") > 0)
-            dynamicOffset += Vector3.right * shiftSpeed * Time.deltaTime;
-        if (Input.GetAxis("Horizontal") < 0)
-            dynamicOffset += Vector3.left * shiftSpeed * Time.deltaTime;
-        if (Input.GetAxis("Vertical") > 0)
-            dynamicOffset += Vector3.up * shiftSpeed * Time.deltaTime;
-        if (Input.GetAxis("Vertical") < 0)
-            dynamicOffset += Vector3.down * shiftSpeed * Time.deltaTime;
-        */
         if (Input.GetAxis("Horizontal") > 0 )
             dynamicOffset.x = Mathf.SmoothDamp(dynamicOffset.x, 2, ref currentVolocity.x, shiftTime);
         if (Input.GetAxis("Horizontal") < 0)
