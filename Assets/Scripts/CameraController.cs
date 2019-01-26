@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public float shiftSpeed;
+    public float shiftTime;
     public Vector3 staticOffset;
 
     public Vector3 dynamicOffset = Vector3.zero;
@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour {
 	
 	void Update ()
     {
+        /*
         if (Input.GetAxis("Horizontal") > 0)
             dynamicOffset += Vector3.right * shiftSpeed * Time.deltaTime;
         if (Input.GetAxis("Horizontal") < 0)
@@ -26,46 +27,27 @@ public class CameraController : MonoBehaviour {
             dynamicOffset += Vector3.up * shiftSpeed * Time.deltaTime;
         if (Input.GetAxis("Vertical") < 0)
             dynamicOffset += Vector3.down * shiftSpeed * Time.deltaTime;
-
-        /*
-        if (Input.GetAxis("Horizontal") == 0)
-            dynamicOffset = new Vector3(Mathf.MoveTowards(dynamicOffset.x, 0, shiftSpeed * Time.deltaTime) , dynamicOffset.y);
-        if (Input.GetAxis("Vertical") == 0)
-            dynamicOffset = new Vector3(dynamicOffset.x, Mathf.MoveTowards(dynamicOffset.y, 0, shiftSpeed * Time.deltaTime));
         */
+        if (Input.GetAxis("Horizontal") > 0 )
+            dynamicOffset.x = Mathf.SmoothDamp(dynamicOffset.x, 2, ref currentVolocity.x, shiftTime);
+        if (Input.GetAxis("Horizontal") < 0)
+            dynamicOffset.x = Mathf.SmoothDamp(dynamicOffset.x, -2, ref currentVolocity.x, shiftTime);
+        if (Input.GetAxis("Vertical") > 0)
+            dynamicOffset.y = Mathf.SmoothDamp(dynamicOffset.y, 2, ref currentVolocity.y, shiftTime);
+        if (Input.GetAxis("Vertical") < 0)
+            dynamicOffset.y = Mathf.SmoothDamp(dynamicOffset.y, -2, ref currentVolocity.y, shiftTime);
 
         if (Input.GetAxis("Horizontal") == 0 && (dynamicOffset.x > 0.01f || dynamicOffset.x < -0.01f))
-            dynamicOffset = new Vector3(Mathf.SmoothDamp(dynamicOffset.x, 0, ref currentVolocity.x, 1 ), dynamicOffset.y);
+            dynamicOffset = new Vector3(Mathf.SmoothDamp(dynamicOffset.x, 0, ref currentVolocity.x, shiftTime ), dynamicOffset.y);
+
         if (Input.GetAxis("Vertical") == 0 && (dynamicOffset.y > 0.01f || dynamicOffset.y < -0.01f))
-            dynamicOffset = new Vector3(dynamicOffset.x, Mathf.SmoothDamp(dynamicOffset.y, 0, ref currentVolocity.y, 1));
+            dynamicOffset = new Vector3(dynamicOffset.x, Mathf.SmoothDamp(dynamicOffset.y, 0, ref currentVolocity.y, shiftTime));
 
 
         dynamicOffset = Vector3.ClampMagnitude(dynamicOffset, 2);
 
 
-        transform.position = player.position;
+        transform.position = new Vector3(player.position.x, 0, player.position.z);
         transform.position = transform.TransformPoint(staticOffset + dynamicOffset);
-
-        /*
-        dynamicOffset = new Vector3(0, 0, staticOffset.z);
-
-        if (Input.GetAxis("Horizontal") > 0)
-            dynamicOffset += Vector3.right * 2;
-        if (Input.GetAxis("Horizontal") < 0)
-            dynamicOffset += Vector3.left * 2;
-        if (Input.GetAxis("Vertical") > 0)
-            dynamicOffset += Vector3.up * 2;
-        if (Input.GetAxis("Vertical") < 0)
-            dynamicOffset += Vector3.down * 2;
-
-        if (Input.GetAxis("Horizontal") == 0)
-            dynamicOffset.x = 0;
-        if (Input.GetAxis("Vertical") == 0)
-            dynamicOffset.y = 0;
-
-
-        transform.position = player.position;
-        transform.position = transform.TransformPoint(staticOffset + dynamicOffset);
-        */
     }
 }
