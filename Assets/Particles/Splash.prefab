@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1251347620277202}
+  m_RootGameObject: {fileID: 1580516142597316}
   m_IsPrefabAsset: 1
---- !u!1 &1251347620277202
+--- !u!1 &1580516142597316
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4681687578985336}
-  - component: {fileID: 198482034501452736}
-  - component: {fileID: 199389967369152086}
+  - component: {fileID: 4494005464883232}
+  - component: {fileID: 198212920760022136}
+  - component: {fileID: 199942561021439288}
   m_Layer: 0
-  m_Name: Dust Step
+  m_Name: Splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4681687578985336
+  m_IsActive: 1
+--- !u!4 &4494005464883232
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1251347620277202}
+  m_GameObject: {fileID: 1580516142597316}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -165.549, y: 21.971, z: -44.534}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,12 +41,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!198 &198482034501452736
+--- !u!198 &198212920760022136
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1251347620277202}
+  m_GameObject: {fileID: 1580516142597316}
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
@@ -120,7 +120,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.6
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -227,7 +227,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.6745283, g: 0.95571464, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -611,7 +611,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.1
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1596,7 +1596,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 4
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4631,13 +4631,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199389967369152086
+--- !u!199 &199942561021439288
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1251347620277202}
+  m_GameObject: {fileID: 1580516142597316}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
