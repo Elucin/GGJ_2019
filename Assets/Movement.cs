@@ -3,49 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour {
-
+    int lmTerrain;
+    public static Movement instance;
     public float speed;
     public float acceleration;
     public float jumpHight;
 
     private bool grounded = true;
+    private bool canJump = true;
     new private Rigidbody rigidbody;
     new private Collider collider;
-
+    Camera cam;
+    Vector3 camForward;
 	void Start ()
     {
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
+        cam = Camera.main;
+        instance = this;
+        lmTerrain = LayerMask.GetMask("Terrain");
 	}
 	
 	void FixedUpdate ()
     {
-        if ((Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0))
+        //Get input into Vector3 for ease of use
+        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+
+        //Check grounded
+        grounded = IsGrounded();
+
+        if (input.magnitude > 0.05f)
         {
             collider.material.bounciness = 0;
-
-            if (grounded == true)
-                rigidbody.AddForce(Vector3.up * jumpHight * Time.deltaTime);
+            //Only jump if we've reset 'canJump' (every 0.05s) and we're on the ground
+            if (grounded == true && canJump){
+                rigidbody.AddForce(Vector3.up * jumpHight * Time.deltaTime, ForceMode.Impulse);
+                StartCoroutine(DelayJump());
+            }
         }
         else
             collider.material.bounciness = 1;
 
-        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        input.Normalize();
+        //Orient the movement relative to the camera
+        Vector3 direction = cam.transform.TransformDirection(input);
+        direction.y = 0;
+        direction.Normalize();
 
-        rigidbody.velocity = new Vector3(
-                Mathf.Clamp(rigidbody.velocity.x + acceleration * input.x * Time.deltaTime, -speed, speed),
-                rigidbody.velocity.y,
-                Mathf.Clamp(rigidbody.velocity.z + acceleration * input.y * Time.deltaTime, -speed, speed));
+        //Turn the player in the direction they're moving
+        if(direction.magnitude > 0)
+            transform.forward = direction;
+
+        //Set the velocity
+        Vector3 vel = rigidbody.velocity + acceleration * direction * Time.deltaTime;
+        vel = Vector3.ClampMagnitude(vel, speed);
+        rigidbody.velocity = vel;
 	}
 
-    void OnCollisionEnter(Collision collision)
-    {
-        grounded = true;
+    bool IsGrounded(){
+        return(Physics.BoxCast(transform.position, new Vector3(0.5f, 0.05f, 0.5f), Vector3.down, transform.rotation, 0.5f, lmTerrain, QueryTriggerInteraction.Ignore));
     }
 
-    void OnCollisionExit(Collision collision)
-    {
-        grounded = false;
+    IEnumerator DelayJump(){
+        canJump = false;
+        yield return new WaitForSeconds(0.05f);
+        canJump = true;
     }
 }

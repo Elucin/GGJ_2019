@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interaction : MonoBehaviour {
-	float maxDistance = 2;
+	float maxDistance = 1.5f;
 	public static GameObject player;
 	Collectable held = null;
 	// Use this for initialization
@@ -14,15 +14,21 @@ public class Interaction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		HighlightClosest(WorldObject.lstWorldObjects);
-		if(Input.GetButtonDown("Collect")){
+
+		if(Input.GetButtonDown("Interact")){
 			if(held != null){
-				held.Drop();
+				held.Interact();
 				held = null;
-			} else if(WorldObject.highlighted.GetType() == typeof(Collectable)){
-				Debug.Log("Collect");
-				Collectable c = WorldObject.highlighted as Collectable;
-				held = c;
-				c.Collect();
+			}
+			else if(WorldObject.highlighted != null){
+				WorldObject.highlighted.Interact();
+			}
+		}
+
+		if(Input.GetButtonDown("Throw")){
+			if(held != null){
+				held.Drop(true);
+				held = null;
 			}
 		}
 	}
@@ -34,6 +40,7 @@ public class Interaction : MonoBehaviour {
         foreach(WorldObject potentialTarget in objects)
         {
             Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
+			directionToTarget.y = 0;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if(dSqrToTarget < closestDistanceSqr)
             {
@@ -41,8 +48,7 @@ public class Interaction : MonoBehaviour {
                 bestTarget = potentialTarget;
             }
         }
-		if(closestDistanceSqr < maxDistance * maxDistance || (bestTarget.GetType() == typeof(Collectable) && !((Collectable)bestTarget).isCollected)){
-			//Debug.Log(bestTarget.gameObject.name);
+		if(closestDistanceSqr < maxDistance * maxDistance){
 			bestTarget.Highlight();
 		}
 		else{

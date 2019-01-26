@@ -13,13 +13,9 @@ public class WorldObject : MonoBehaviour {
 	//Components
 	protected Rigidbody rb; 
 	private Material material;
-
-	//For Testing
-	public bool doHighlight = false;
 	
 	void OnEnable(){
 		lstWorldObjects.Add(this);
-		Debug.Log(gameObject.name);
 	}
 
 	void OnDisable(){
@@ -32,6 +28,10 @@ public class WorldObject : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 	}
 
+	public virtual void Interact(){
+		return;
+	}
+
 	public void Highlight(){
 		highlighted = this;
 		isHighlighted = true;
@@ -39,12 +39,7 @@ public class WorldObject : MonoBehaviour {
 		return;
 	}
 
-	void Update(){
-		if(doHighlight){
-			doHighlight = false;
-			Highlight();
-		}
-
+	protected virtual void Update(){
 		if(highlighted != this && isHighlighted){
 			isHighlighted = false;
 			material.SetColor ("_EmissionColor", Color.black);
