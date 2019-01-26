@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        transform.position = player.position + Distance;
+        transform.position = player.position;
+        transform.position = transform.TransformPoint(Distance);
 	}
 }
