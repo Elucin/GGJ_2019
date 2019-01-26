@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WorldObject : MonoBehaviour {
 	private static Color HIGHLIGHT_COLOR = Color.green;
-	public static WorldObject[] lstWorldObjects;
+	public static List<WorldObject> lstWorldObjects = new List<WorldObject>();
 
 	//Highlight
 	public static WorldObject highlighted = null;
@@ -17,9 +17,19 @@ public class WorldObject : MonoBehaviour {
 	//For Testing
 	public bool doHighlight = false;
 	
+	void OnEnable(){
+		lstWorldObjects.Add(this);
+		Debug.Log(gameObject.name);
+	}
+
+	void OnDisable(){
+		lstWorldObjects.Remove(this);
+	}
+
 	void Start(){
 		material = GetComponent<MeshRenderer>().material;
 		material.EnableKeyword("_EmissionColor");
+		rb = GetComponent<Rigidbody>();
 	}
 
 	public void Highlight(){

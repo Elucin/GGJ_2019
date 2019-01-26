@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectable : WorldObject {
 	private const float THROW_FORCE = 10.0f;
-	private bool isCollected = false;
+	public bool isCollected = false;
 	public Collectable Collect(){
 		isCollected = true;
 		return this; 
@@ -18,6 +18,12 @@ public class Collectable : WorldObject {
 	public void Throw(Vector3 direction){
 		isCollected = false;
 		rb.AddForce(direction * THROW_FORCE, ForceMode.Impulse);
+	}
+
+	void Update(){
+		if(isCollected){
+			transform.position = Interaction.player.transform.position + Vector3.up;
+		}
 	}
 
 }
