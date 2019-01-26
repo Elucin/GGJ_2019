@@ -31,10 +31,7 @@ public class Movement : MonoBehaviour {
             collider.material.bounciness = 1;
 
         Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        Debug.Log("1: " + input);
         input.Normalize();
-        Debug.Log("2: " + input);
-
 
         rigidbody.velocity = new Vector3(
                 Mathf.Clamp(rigidbody.velocity.x + acceleration * input.x * Time.deltaTime, -speed, speed),
