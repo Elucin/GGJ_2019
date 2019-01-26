@@ -419,7 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0d65103ca7bda48853ca8dee926a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Distance: {x: 0, y: 0, z: 0}
+  shiftSpeed: 0.5
+  staticOffset: {x: 0, y: 0, z: -10}
 --- !u!1 &1528886573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1336673467108072, guid: 5b94a46508ae1c04ab9107af35e0b3d7,
