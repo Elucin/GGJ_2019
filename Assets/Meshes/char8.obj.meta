@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: b591310af6b76034cb9d8507ae83be98
+guid: 0f33c1f9748553748a9bdd317156f45a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: tile13
+    100000: char8
     100002: //RootNode
-    400000: tile13
+    400000: char8
     400002: //RootNode
-    2100000: tile13Mat
-    2300000: tile13
-    3300000: tile13
-    4300000: tile13
+    2100000: char8Mat
+    2300000: char8
+    3300000: char8
+    4300000: char8
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: tile13Mat
+      name: char8Mat
     second: {fileID: 2100000, guid: 7e652d19c5b1c1a43bede0f0434a6c0e, type: 2}
   materials:
     importMaterials: 1
