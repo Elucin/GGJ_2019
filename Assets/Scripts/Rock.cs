@@ -5,6 +5,8 @@ using UnityEngine;
 public class Rock : Collectable {
 
 	void OnCollisionEnter(Collision c){
+		if(Interaction.held == this)
+			return;
 		if(c.transform.tag == "FruitTree"){
 			c.gameObject.GetComponent<FruitTree>().DropFruit();
 			return;

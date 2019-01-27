@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class SimpleAI : MonoBehaviour {
 	private float wanderInterval = 10f;
-	private float wanderDistance = 20f;
+	protected float wanderDistance = 20f;
 	private float wanderTime = 0f;
 	private float wanderSpeed = 2f;
 	private float followSpeed = 10f;

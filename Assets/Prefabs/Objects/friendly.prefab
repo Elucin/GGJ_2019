@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1951417660354104
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 23396046366030270}
   - component: {fileID: 65843517212547052}
   - component: {fileID: 54207288403163092}
+  - component: {fileID: 114581454868722540}
   m_Layer: 13
   m_Name: friendly
   m_TagString: Friend
@@ -143,6 +144,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2000003, y: 1.4, z: 1.2000003}
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &114581454868722540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951417660354104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7510a9372ae4ddc41b77c0479c42ea83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swim: 0
+  zone: {fileID: 1832443460385408}
+  enemies: []
 --- !u!114 &114700202838204480
 MonoBehaviour:
   m_ObjectHideFlags: 1

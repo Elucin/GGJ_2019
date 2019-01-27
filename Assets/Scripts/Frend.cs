@@ -7,6 +7,7 @@ public class Frend : SimpleAI {
 	// Use this for initialization
 	public override void Start () {
 		base.Start();
+		wanderDistance = 1f;
 	}
 	
 	// Update is called once per frame
