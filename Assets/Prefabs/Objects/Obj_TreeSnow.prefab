@@ -125,3 +125,6 @@ MonoBehaviour:
     type: 2}
   spawnParticle: {fileID: 1310165976262474, guid: 38ecc5ee7d9f10042a0aaa3bbba1e766,
     type: 2}
+  newObject: {fileID: 0}
+  newModel: {fileID: 0}
+  yOffset: 3

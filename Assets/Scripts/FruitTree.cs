@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FruitTree : MonoBehaviour {
 	public List<GameObject> fruit = new List<GameObject>();
+
+	public AudioSource fruitsound;
 	public void DropFruit(){
 		if(fruit.Count > 0){
 			GameObject f = fruit[fruit.Count - 1];
@@ -11,6 +13,7 @@ public class FruitTree : MonoBehaviour {
 			f.AddComponent<Collectable>();
 			f.GetComponent<Rigidbody>().isKinematic = false;
 			fruit.Remove(f);
+			fruitsound.Play();
 		}
 		
 	}
