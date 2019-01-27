@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interaction : MonoBehaviour {
 	float maxDistance = 1.5f;
 	public static GameObject player;
-	Collectable held = null;
+	public static Collectable held = null;
 	// Use this for initialization
 	void Start () {
 		player = this.gameObject;
