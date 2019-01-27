@@ -17,8 +17,13 @@ public class Movement : MonoBehaviour {
     new private Rigidbody rigidbody;
     new private Collider collider;
     private Coroutine squachAndSquich;
+
+    public ParticleSystem dustParticle;
+    public ParticleSystem splashParticle;
     Camera cam;
     Vector3 camForward;
+
+    bool inWater = false;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -36,11 +41,21 @@ public class Movement : MonoBehaviour {
         //Check grounded
         grounded = IsGrounded();
 
-        if (squachAndSquich == null && grounded == false)
+        
+
+        if (squachAndSquich == null && grounded == false){
+            
             squachAndSquich = StartCoroutine(SquachAndStrech());
+        }
 
         if (input.magnitude > 0.05f)
         {
+            if(grounded){
+                if(!dustParticle.isPlaying && !splashParticle.isPlaying){
+                    if(!inWater) {dustParticle.Play();}
+                    else {Debug.Log("play");splashParticle.Play();}
+                }
+            }
             collider.material.bounciness = 0;
             //Only jump if we've reset 'canJump' (every 0.05s) and we're on the ground
             if (grounded == true && canJump) {
@@ -92,5 +107,15 @@ public class Movement : MonoBehaviour {
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * 1.2f, transform.localScale.z);
 
         squachAndSquich = null;
+    }
+
+    void OnTriggerStay(Collider c){
+       // Debug.Log("water");
+        if(c.tag == "Water"){inWater = true;}
+    }
+
+     void OnTriggerExit(Collider c){
+        // Debug.Log("no");
+        if(c.tag == "Water"){inWater = false;}
     }
 }
