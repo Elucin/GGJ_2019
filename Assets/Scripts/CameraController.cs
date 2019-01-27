@@ -13,8 +13,11 @@ public class CameraController : MonoBehaviour {
     private Vector2 smoothVolocity;
     private float lastHit = 0;
     private float currentHit;
+    private float initial_zoom;
+    private float zoom_out = 20f;
 	void Start ()
     {
+        initial_zoom = Camera.main.orthographicSize;
         player = GameObject.Find("Player").transform;
         currentHit = player.position.y;
 	}
@@ -30,6 +33,12 @@ public class CameraController : MonoBehaviour {
         lastHit = hit.point.y;
         */
 
+        if(Input.GetButton("Zoom")){
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoom_out, Time.deltaTime * 2);
+        } 
+        else{
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, initial_zoom, Time.deltaTime * 4);
+        }
 
         if (Input.GetAxis("Horizontal") > 0 )
             dynamicOffset.x = Mathf.SmoothDamp(dynamicOffset.x, 2, ref smoothVolocity.x, shiftTime);

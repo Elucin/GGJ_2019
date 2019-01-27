@@ -8,7 +8,7 @@ public class time_system : MonoBehaviour {
 	public Color midday;
 	public Color sunset;
 
-	float half_day = 30f;
+	float half_day = 156f;
 	
 	private float startTime = 0f;
 	// Use this for initialization
