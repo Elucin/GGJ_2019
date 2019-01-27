@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
 		NUM_OF_STATUSES
 	}
 
+	bool gameOver = false;
 	public static GameManager instance;
 	public Status ClimateObjective{
 		get{
@@ -129,12 +130,20 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Win(){
-		Debug.Log("You Win!");
+		if(!gameOver){
+			gameOver = true;
+			UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Victory");
+			Debug.Log("You Win!");
+		}
 		return;
 	}
 	
 	public void Lose(){
-		Debug.Log("You Lose!");
+		if(!gameOver){
+			gameOver = true;
+			UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Lose");
+			Debug.Log("You Lose!");
+		}
 	}
 
 	public void SetStatus(Status s, bool setToTrue=true){
