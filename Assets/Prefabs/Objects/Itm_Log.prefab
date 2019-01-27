@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54306060816921462}
   - component: {fileID: 114316813450867504}
   - component: {fileID: 136764678736086920}
+  - component: {fileID: 114881241287521074}
   m_Layer: 8
   m_Name: Itm_Log
   m_TagString: Collectable
@@ -39,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008693149458026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.045, y: -0.49, z: -16.497}
-  m_LocalScale: {x: 0.046057794, y: 0.046057794, z: 0.046057794}
+  m_LocalPosition: {x: -61.99, y: 16.5, z: -16.497}
+  m_LocalScale: {x: 0.07147709, y: 0.07147709, z: 0.07147709}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -126,6 +127,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCollected: 0
+--- !u!114 &114881241287521074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008693149458026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6016f05f842eb4c45be8148b5451e1e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fusionPartner: {fileID: 1008693149458026}
+  fusionResult: {fileID: 1070027317318432, guid: 7aab41b4d7f3a534b84f4304edfc166d,
+    type: 2}
 --- !u!136 &136764678736086920
 CapsuleCollider:
   m_ObjectHideFlags: 1
