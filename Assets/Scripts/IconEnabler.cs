@@ -15,7 +15,7 @@ public class IconEnabler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		for(int i = 0;i<icons.Length;i++){
-			
+			icons[i].gameObject.SetActive(GameManager.instance.statuses[i]);
 		}
 	}
 }
