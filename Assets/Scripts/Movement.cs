@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour {
 
         if (squachAndSquich == null && grounded == false){
             
-            squachAndSquich = StartCoroutine(SquachAndStrech());
+            squachAndSquich = StartCoroutine(SquishAndStrech());
         }
 
         if (input.magnitude > 0.05f)
@@ -98,16 +98,35 @@ public class Movement : MonoBehaviour {
         canJump = true;
     }
 
-    IEnumerator SquachAndStrech()
+    IEnumerator SquishAndStrech()
     {
+        float squishAmount = 1;
+
         yield return new WaitForSeconds(0.05f);
 
         while (grounded == false)
+        {
+            squishAmount += 0.3f * Time.deltaTime;
             yield return null;
+        }
 
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 1/1.2f, transform.localScale.z);
-        yield return new WaitForSeconds(0.1f);
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * 1.2f, transform.localScale.z);
+        float target = transform.localScale.y / squishAmount;
+        float t = 0;
+        while (t < 1)
+        {
+            t += Time.deltaTime / 0.1f;
+            transform.localScale = new Vector3(transform.localScale.x, Mathf.Lerp(transform.localScale.y, target, t), transform.localScale.z);
+            yield return null;
+        }
+        
+        target = transform.localScale.y * squishAmount;
+        t = 0;
+        while (t < 1)
+        {
+            t += Time.deltaTime / 0.1f;
+            transform.localScale = new Vector3(transform.localScale.x, Mathf.MoveTowards(transform.localScale.y, target, t), transform.localScale.z);
+            yield return null;
+        }
 
         squachAndSquich = null;
     }
