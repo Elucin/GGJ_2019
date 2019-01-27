@@ -170,6 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swim: 0
   zone: {fileID: 0}
+  deathParticle: {fileID: 1310165976262474, guid: 38ecc5ee7d9f10042a0aaa3bbba1e766,
+    type: 2}
 --- !u!135 &135751040984736950
 SphereCollider:
   m_ObjectHideFlags: 1
