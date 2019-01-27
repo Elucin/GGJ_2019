@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114602302955908076}
   - component: {fileID: 65048801841775324}
   m_Layer: 8
-  m_Name: Obj_FireflyJar
+  m_Name: Itm_FireflyJar
   m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
