@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public class MainMenu : MonoBehaviour {
   public int currentChoice = 1;
   public Button[] climate_buttons;
@@ -11,18 +11,34 @@ public class MainMenu : MonoBehaviour {
   public Button[] misc_buttons;
   public Button[] targets;
   public Button[] end_targets;
+  public Button[] first_selected;
   public GameObject terrain, supplies, misc;
   public Image title;
+  public Image fade;
 
+  private EventSystem eventSystem;
   private Button[] user_choices = new Button[4];
   private float speed = 5.0f;
   private int FADE_TIME = 1;
   private float startTime = 0.0f;
   private float journeyLength = 0.0f;
+  bool changing = false;
+  float changeTime = 0f;
 
 	void Start () {
+    eventSystem = GameObject.FindObjectOfType<EventSystem>();
     setListeners();
+    
 	}
+
+  void Update(){
+    if(changing){
+        float a = (Time.time - changeTime) / 3.0f;
+        Debug.Log(a);
+        Color fade_col = new Color(0, 0, 0, a);
+        fade.color = fade_col;
+    }
+  }
 
   void setListeners() {
     foreach (Button btn in climate_buttons){
@@ -41,10 +57,13 @@ public class MainMenu : MonoBehaviour {
       btn.onClick.AddListener(() => choiceMade(btn, 4));
     }
   }
-
+  
 	void choiceMade (Button choice, int numChoice) {
     startTime = Time.time;
     user_choices[numChoice-1] = choice;
+    if(numChoice != 4){
+      eventSystem.SetSelectedGameObject(first_selected[numChoice-1].gameObject);
+    }
     sideEffects(choice, numChoice);
 	}
 
@@ -132,8 +151,9 @@ public class MainMenu : MonoBehaviour {
         StartCoroutine(MoveTo(user_choices[3], user_choices[3].transform, end_targets[3].transform));
         break;
       case 6:
-        Debug.Log("Change scenes");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
+        StartCoroutine(ChangeScenes("WorldMap"));
+        changing = true;
+        changeTime = Time.time;
         break;
     }
   }
@@ -143,5 +163,10 @@ public class MainMenu : MonoBehaviour {
       btn.GetComponent<Image>().CrossFadeAlpha(0,FADE_TIME,false);
     }
     yield return null;
+  }
+
+  IEnumerator ChangeScenes(string scene){
+    yield return new WaitForSeconds(4f);
+    UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
   }
 }

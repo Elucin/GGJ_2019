@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public static GameManager instance;
-	private Status ClimateObjective{
+	public Status ClimateObjective{
 		get{
 			return (Status)objectives[(int)Objectives.CLIMATE];
 		}
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour {
 			objectives[(int)Objectives.CLIMATE] = (int)value;
 		}
 	}
-	private Status TerrainObjective{
+	public Status TerrainObjective{
 		get{
 			return (Status)objectives[(int)Objectives.TERRAIN];
 		}
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
 			objectives[(int)Objectives.TERRAIN] = (int)value;
 		}
 	}
-	private Status ThingsObjective{
+	public Status ThingsObjective{
 		get{
 			return (Status)objectives[(int)Objectives.THINGS];
 		}
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour {
 			objectives[(int)Objectives.THINGS] = (int)value;
 		}
 	}
-	private Status MiscObjective{
+	public Status MiscObjective{
 		get{
 			return (Status)objectives[(int)Objectives.MISC];
 		}
@@ -62,8 +62,8 @@ public class GameManager : MonoBehaviour {
 			objectives[(int)Objectives.MISC] = (int)value;
 		}
 	}
-
-	private int[] objectives = new int[4];
+	[SerializeField]
+	public int[] objectives = new int[4];
 
 	//Checking objective completion
 	private bool achievedClimate{
@@ -95,9 +95,16 @@ public class GameManager : MonoBehaviour {
 	private bool[] statuses = new bool[15];
 	// Use this for initialization
 	void Start () {
-		instance = this;
+		DontDestroyOnLoad(gameObject);
+		if(instance == null)
+			instance = this;
+		else
+			Destroy(gameObject);
 		for(int i = 0; i < 15; i++){
 			statuses[i] = false;
+		}
+		for(int i = 0; i < 4; i++){
+			objectives[i] = 15;
 		}
 	}
 	
@@ -109,8 +116,12 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Win(){
-		//Do win behaviour here. Fade out/Load new scene?
+		Debug.Log("You Win!");
 		return;
+	}
+
+	public void Lose(){
+		Debug.Log("You Lose!");
 	}
 
 	public void SetStatus(Status s, bool setToTrue=true){
@@ -118,4 +129,15 @@ public class GameManager : MonoBehaviour {
 		if(statuses[(int)Status.WARM])
 			statuses[(int)Status.COOL] = false;
 	}
+
+	public void SetObjective(int selection){
+		if(ClimateObjective == (Status)15)
+			ClimateObjective = (Status)selection;
+		else if(TerrainObjective == (Status)15)
+			TerrainObjective = (Status)selection;
+		else if(ThingsObjective == (Status)15)
+			ThingsObjective = (Status)selection;
+		else if(MiscObjective == (Status)15)
+			MiscObjective = (Status)selection;
+	} 
 }

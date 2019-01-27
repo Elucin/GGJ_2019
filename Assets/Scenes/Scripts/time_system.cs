@@ -8,7 +8,7 @@ public class time_system : MonoBehaviour {
 	public Color midday;
 	public Color sunset;
 
-	float half_day = 5f;
+	float half_day = 30f;
 	
 	private float startTime = 0f;
 	// Use this for initialization
@@ -19,6 +19,9 @@ public class time_system : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		float elapsedTime = Time.time - startTime;
+		if(elapsedTime > half_day * 2){
+			GameManager.instance.Lose();
+		}
 		Color lightColor;
 		if(isSun){
 			float t = 0f;
@@ -33,7 +36,7 @@ public class time_system : MonoBehaviour {
 			GetComponent<Light>().color = lightColor;
 		}
 
-		transform.RotateAround(Vector3.zero, Vector3.right, Time.deltaTime);
+		transform.RotateAround(Vector3.zero, Vector3.right, Time.deltaTime / (half_day / 100f));
 		transform.LookAt(Vector3.zero);
 	}
 }
