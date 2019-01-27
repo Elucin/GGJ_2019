@@ -3,61 +3,87 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-	public enum Attributes{
-		CLIMATE,
-		TERRAIN,
-		THINGS,
-		MISC,
-		NUM_OF_ATTRIBUTE
-
-	}
-	public enum Climate{
+	public enum Status{
 		WARM,
 		COOL,
 		DRY,
-		WET,
-		NUM_OF_CLIMATES
-	}
-	public enum Terrain{
-		FOREST,
-		ALTITUDE,
-		PLAINS,
-		COAST,
-		NUM_OF_CLIMATES
-	}
-	public enum Things{
+		WET,	
 		FOOD,
 		LIGHT,
 		COMFORT,
 		DECORATION,
-		NUM_OF_THINGS
-	}
-	public enum Misc{
+		FOREST,
+		ALTITUDE,
+		PLAINS,
+		COAST,
 		PARTNER,
 		COMPANIONSHIP,
 		SAFETY,
-		NUM_OF_MISC
-
+		NUM_OF_STATUSES
 	}
-	private Climate climate_objective;
+	public enum Objectives{
+		CLIMATE,
+		TERRAIN,
+		THINGS,
+		MISC,
+		NUM_OF_STATUSES
+	}
+
+	public static GameManager instance;
+	private Status ClimateObjective{
+		get{
+			return (Status)objectives[(int)Objectives.CLIMATE];
+		}
+		set{
+			objectives[(int)Objectives.CLIMATE] = (int)value;
+		}
+	}
+	private Status TerrainObjective{
+		get{
+			return (Status)objectives[(int)Objectives.TERRAIN];
+		}
+		set{
+			objectives[(int)Objectives.TERRAIN] = (int)value;
+		}
+	}
+	private Status ThingsObjective{
+		get{
+			return (Status)objectives[(int)Objectives.THINGS];
+		}
+		set{
+			objectives[(int)Objectives.THINGS] = (int)value;
+		}
+	}
+	private Status MiscObjective{
+		get{
+			return (Status)objectives[(int)Objectives.MISC];
+		}
+		set{
+			objectives[(int)Objectives.MISC] = (int)value;
+		}
+	}
+
+	private int[] objectives = new int[4];
+
+	//Checking objective completion
 	private bool achievedClimate{
 		get{
-			return objectives[(int)Attributes.CLIMATE,(int)climate_objective];
+			return statuses[(int)ClimateObjective];
 		}
 	}
 	private bool achievedTerrain{
 		get{
-			return objectives[(int)Attributes.TERRAIN,(int)climate_objective];
+			return statuses[(int)TerrainObjective];
 		}
 	}
 	private bool achievedThings{
 		get{
-			return objectives[(int)Attributes.THINGS,(int)climate_objective];
+			return statuses[(int)ThingsObjective];
 		}
 	}
 	private bool achievedMisc{
 		get{
-			return objectives[(int)Attributes.MISC,(int)climate_objective];
+			return statuses[(int)MiscObjective];
 		}
 	}
 	private bool achievedAll{
@@ -65,14 +91,13 @@ public class GameManager : MonoBehaviour {
 			return achievedClimate && achievedTerrain && achievedThings && achievedMisc; 
 		}
 	}
-
-	public bool[,] objectives = new bool[4,4];
+	[SerializeField]
+	private bool[] statuses = new bool[15];
 	// Use this for initialization
 	void Start () {
-		for(int i = 0; i < 4; i++){
-			for(int j = 0; j < 4; j++){
-				objectives[i,j] = false;
-			}
+		instance = this;
+		for(int i = 0; i < 15; i++){
+			statuses[i] = false;
 		}
 	}
 	
@@ -86,5 +111,11 @@ public class GameManager : MonoBehaviour {
 	void Win(){
 		//Do win behaviour here. Fade out/Load new scene?
 		return;
+	}
+
+	public void SetStatus(Status s, bool setToTrue=true){
+		statuses[(int)s] = setToTrue;
+		if(statuses[(int)Status.WARM])
+			statuses[(int)Status.COOL] = false;
 	}
 }
