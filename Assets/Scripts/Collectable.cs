@@ -23,7 +23,12 @@ public class Collectable : WorldObject {
 
 		//No longer considered to be the collected object
 		isCollected = false;
-		//Toss it
+
+		//Toss me
+		//What?
+		//I cannot jump such a distance you'll have to toss me!
+		//Uh-h-h-h... don't tell the elf.
+		//Not a word
 		rb.velocity = (transform.up * UP_FORCE + Vector3.up * Interaction.player.GetComponent<Rigidbody>().velocity.y) + Interaction.player.transform.forward * forward_force;
 	}
 
