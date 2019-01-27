@@ -8,6 +8,7 @@ public class Interaction : MonoBehaviour {
 	public static Collectable held = null;
 	// Use this for initialization
 	public ParticleSystem interactParticle;
+	public SoundPlay interactSound;
 	void Start () {
 		player = this.gameObject;
 	}
@@ -19,6 +20,7 @@ public class Interaction : MonoBehaviour {
 		if(Input.GetButtonDown("Interact")){
 			if(!interactParticle.isPlaying){
 				interactParticle.Play();
+				interactSound.Play();
 			}
 			if(held != null){
 				held.Interact();

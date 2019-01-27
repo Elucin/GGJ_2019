@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530194973529054}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 146, y: 3.46, z: -11.8}
+  m_LocalScale: {x: 0.15476, y: 0.15476, z: 0.15476}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -125,3 +125,6 @@ MonoBehaviour:
     type: 2}
   spawnParticle: {fileID: 1310165976262474, guid: 38ecc5ee7d9f10042a0aaa3bbba1e766,
     type: 2}
+  newObject: {fileID: 0}
+  newModel: {fileID: 0}
+  yOffset: 3

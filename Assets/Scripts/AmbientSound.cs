@@ -9,6 +9,8 @@ public class AmbientSound : MonoBehaviour {
 	float timer;
 	public AudioSource player;
 	// Use this for initialization
+
+	bool inArea = false;
 	void Start () {
 		timer = avgWait + Random.Range(-diff,diff);
 	}
@@ -18,8 +20,20 @@ public class AmbientSound : MonoBehaviour {
 		if(timer>0){
 			timer-=Time.deltaTime;
 		}else{
-			player.Play();
+			if(inArea){player.Play();}
 			timer = avgWait + Random.Range(-diff,diff);
+		}
+	}
+
+	void OnTriggerEnter(Collider c){
+		if(c.name == "Player"){
+			inArea = true;
+		}
+	}
+
+	void OnTriggerExit(Collider c){
+		if(c.name == "Player"){
+			inArea = false;
 		}
 	}
 }

@@ -6,6 +6,8 @@ public class Shepaca : SimpleAI {
 	bool getApple = false;
 	Interaction player;
 	WorldObject apple;
+
+	public ParticleSystem hearts;
 	// Use this for initialization
 	public override void Start () {
 		base.Start();
@@ -39,7 +41,7 @@ public class Shepaca : SimpleAI {
 		if(getApple){
 			if(c.gameObject == apple.gameObject){
 				Destroy(apple.gameObject);
-				//Heart
+				hearts.Play();
 				follow = true;
 				getApple = false;
 				zone.SetActive(true);

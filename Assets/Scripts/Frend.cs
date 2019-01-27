@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Frend : SimpleAI {
 	public List<EnemyAI> enemies = new List<EnemyAI>();
+
+	public ParticleSystem hearts;
 	// Use this for initialization
 	public override void Start () {
 		base.Start();
@@ -21,5 +23,6 @@ public class Frend : SimpleAI {
 	void Freedom(){
 		zone.SetActive(true);
 		follow = true;
+		hearts.Play();
 	}
 }
