@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 65513043390394132}
   - component: {fileID: 114845849299388196}
   m_Layer: 0
-  m_Name: Obj_TreeSnow
+  m_Name: Obj_TreeDesert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 424d6902b5000374faa72a626cd0847a, type: 2}
+  - {fileID: 2100000, guid: a1ffb14e60ac1ff41ab41b4eb19852c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,7 +85,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530194973529054}
-  m_Mesh: {fileID: 4300000, guid: 7b1a86d90bbd549448b7978c0af649a0, type: 3}
+  m_Mesh: {fileID: 4300000, guid: f050f8cf418e7ed438f6473b2db59b63, type: 3}
 --- !u!65 &65474252682355202
 BoxCollider:
   m_ObjectHideFlags: 1
