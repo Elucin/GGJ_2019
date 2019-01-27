@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Water
   - FruitTree
+  - Enemy
   layers:
   - Default
   - TransparentFX

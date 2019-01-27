@@ -43,7 +43,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1293644277200094
 GameObject:
@@ -60,7 +60,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1424854286027750
 GameObject:
@@ -94,7 +94,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1707418254923236
 GameObject:
@@ -130,10 +130,10 @@ GameObject:
   - component: {fileID: 54155539331747658}
   m_Layer: 8
   m_Name: Heart_Berry (1)
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1830341738307152
 GameObject:
@@ -149,10 +149,10 @@ GameObject:
   - component: {fileID: 54450167692674844}
   m_Layer: 8
   m_Name: Heart_Berry
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1844536271608592
 GameObject:
@@ -168,10 +168,10 @@ GameObject:
   - component: {fileID: 54694222340393516}
   m_Layer: 8
   m_Name: Heart_Berry (2)
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4000367642258784
 Transform:
@@ -678,6 +678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statuses: 04000000
+  remove_statuses: 
 --- !u!114 &114372902916697398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -705,6 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statuses: 04000000
+  remove_statuses: 
 --- !u!114 &114987881998821058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -717,6 +719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statuses: 04000000
+  remove_statuses: 
 --- !u!135 &135528910559065254
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -9,7 +9,7 @@ public class SimpleAI : MonoBehaviour {
 	private float wanderSpeed = 2f;
 	private float followSpeed = 10f;
 	public bool swim = false;
-	bool follow = false;
+	protected bool follow = false;
 	private NavMeshAgent navMeshAgent;
 	Vector3 startingPos;
 	// Use this for initialization
@@ -29,7 +29,7 @@ public class SimpleAI : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public virtual void Update () {
 		navMeshAgent.speed = follow ? followSpeed : wanderSpeed;
 		if(follow){
 			
