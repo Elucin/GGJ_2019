@@ -147,5 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e830530fefa4e4ab880c5a4d01daf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: 0
+  house: {fileID: 1643939907633574, guid: 6034094a336494486aa46019d034faeb, type: 2}
   objectives: 00000000000000000000000000000000
   statuses: 000000000000000000000000000001

@@ -165,7 +165,7 @@ public class MainMenu : MonoBehaviour {
   }
   IEnumerator ChangeScenes(string scene){
     yield return new WaitForSeconds(4f);
-    GameManager.gameHasStarted = true;
+    //GameManager.gameHasStarted = true;
     UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
     
   }

@@ -8,6 +8,7 @@ public class IconEnabler : MonoBehaviour {
 	public Image[] icons;
 	public bool playerObjectives = false;
 	private Canvas canvas;
+	public Canvas controls;
 	// Use this for initialization
 	void Start () {
 		canvas = GetComponent<Canvas>();
@@ -22,7 +23,7 @@ public class IconEnabler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(playerObjectives){
-			canvas.enabled = Input.GetButton("Info");
+			controls.enabled = canvas.enabled = Input.GetButton("Info");
 			transform.LookAt(Camera.main.transform);
 			transform.position = Movement.instance.transform.position + Vector3.up * 2;
 			return;

@@ -111,23 +111,18 @@ public class GameManager : MonoBehaviour {
 			statuses[i] = false;
 		}
 		for(int i = 0; i < 4; i++){
-			if(UnityEngine.SceneManagement.SceneManager.GetActiveScene() == UnityEngine.SceneManagement.SceneManager.GetSceneByName("WorldMap")){
-				objectives[i] = i * 4;
-			}
-			else
-				objectives[i] = 15;
+			objectives[i] = 15;
 		}
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(gameHasStarted){
-			if(achievedAll){
-				Win();
-			}
+		if(UnityEngine.SceneManagement.SceneManager.GetActiveScene() == UnityEngine.SceneManagement.SceneManager.GetSceneByName("Intro"))
+			return;
+		if(achievedAll){
+			Win();
 		}
-		
 	}
 
 	void Win(){

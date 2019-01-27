@@ -546,6 +546,7 @@ MonoBehaviour:
   - {fileID: 114545539040707788}
   - {fileID: 114078207977356114}
   playerObjectives: 1
+  controls: {fileID: 0}
 --- !u!114 &114545539040707788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1054,7 +1055,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347219820129492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -28.18}
+  m_LocalPosition: {x: 0, y: 0, z: -0.6000004}
   m_LocalScale: {x: 0.017228782, y: 0.017228782, z: 0.017228782}
   m_Children:
   - {fileID: 224532886450293730}
@@ -1077,7 +1078,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -72.32, y: 11.55}
+  m_AnchoredPosition: {x: 4.0999985, y: 4.8599997}
   m_SizeDelta: {x: 337.83, y: 86.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224445967792637268

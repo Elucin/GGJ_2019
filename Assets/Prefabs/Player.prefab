@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactParticle: {fileID: 198662731203422304}
+  interactSound: {fileID: 0}
 --- !u!114 &114822880080275750
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5,10 +5,15 @@ using UnityEngine;
 public class Rock : Collectable {
 
 	 int lmTerrain;
-
+	bool grounded = false;
 	public override void Start(){
 		base.Start();
-		lmTerrain = LayerMask.GetMask("Terrain", "AI");
+		lmTerrain = LayerMask.GetMask("Terrain");
+	}
+
+	void Update(){
+		Debug.DrawLine(transform.position, transform.position + Vector3.down);
+		grounded = IsGrounded();
 	}
 
 	void OnCollisionEnter(Collision c){
@@ -18,7 +23,7 @@ public class Rock : Collectable {
 			c.gameObject.GetComponent<FruitTree>().DropFruit();
 			return;
 		}
-		else if(c.transform.tag == "Enemy" && !IsGrounded()){
+		else if(c.transform.tag == "Enemy" && !grounded){
 			c.gameObject.GetComponent<EnemyAI>().Kill();
 			Debug.Log("Kill");
 			return;
@@ -26,6 +31,7 @@ public class Rock : Collectable {
 	}
 
 	bool IsGrounded() {
-        return (Physics.Raycast(transform.position, Vector3.down,  0.3f, lmTerrain, QueryTriggerInteraction.Ignore));
+		
+        return (Physics.Raycast(transform.position, Vector3.down, 1f, lmTerrain, QueryTriggerInteraction.Ignore));
     }
 }
