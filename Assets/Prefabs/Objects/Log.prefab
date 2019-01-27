@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4258467569711158}
   - component: {fileID: 33794356952508010}
   - component: {fileID: 23924530507338368}
-  - component: {fileID: 135580579894987204}
   - component: {fileID: 114451164953461814}
   - component: {fileID: 54306060816921462}
   - component: {fileID: 114316813450867504}
+  - component: {fileID: 136764678736086920}
   m_Layer: 8
   m_Name: Log
   m_TagString: Collectable
@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1008693149458026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.045, y: -0.49, z: -16.497}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.046057794, y: 0.046057794, z: 0.046057794}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: ddf5db2be7055b94ca46675d3aa869d8, type: 2}
+  - {fileID: 2100000, guid: 048b4f3454063cc4e8cfd0e2c1657e17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,7 +86,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008693149458026}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: b698227b55c8ce04886e3a5bf698c2bd, type: 3}
 --- !u!54 &54306060816921462
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCollected: 0
---- !u!135 &135580579894987204
-SphereCollider:
+--- !u!136 &136764678736086920
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -135,6 +135,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 4.1
+  m_Height: 13.92
+  m_Direction: 0
+  m_Center: {x: -0.5, y: 3.5, z: 0}

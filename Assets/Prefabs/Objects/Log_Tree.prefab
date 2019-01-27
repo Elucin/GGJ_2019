@@ -121,5 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73a9817977c9d847af805759451784f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondaryObject: {fileID: 0}
-  spawnParticle: {fileID: 0}
+  secondaryObject: {fileID: 1008693149458026, guid: 2c8113ffc1ab1ec4c8b56875ffea030d,
+    type: 2}
+  spawnParticle: {fileID: 1310165976262474, guid: 38ecc5ee7d9f10042a0aaa3bbba1e766,
+    type: 2}
