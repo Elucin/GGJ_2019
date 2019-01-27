@@ -19,7 +19,7 @@ public class SimpleAI : MonoBehaviour {
 		//navMeshAgent = GetComponent<NavMeshAgent>();
 		NavMeshHit closestHit;
 		
-		int layerhit = swim ? NavMesh.GetAreaFromName("Swim") : 1;
+		int layerhit = swim ? 1 << NavMesh.GetAreaFromName("Swim") : 1;
 		//Debug.Log(layerhit);
 		if( NavMesh.SamplePosition(  transform.position, out closestHit, 500, layerhit ) ){
 			startingPos = transform.position = closestHit.position;
