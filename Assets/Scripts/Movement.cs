@@ -53,7 +53,7 @@ public class Movement : MonoBehaviour {
             if(grounded){
                 if(!dustParticle.isPlaying && !splashParticle.isPlaying){
                     if(!inWater) {dustParticle.Play();}
-                    else {Debug.Log("play");splashParticle.Play();}
+                    else {splashParticle.Play();}
                 }
             }
             collider.material.bounciness = 0;
@@ -110,12 +110,12 @@ public class Movement : MonoBehaviour {
     }
 
     void OnTriggerStay(Collider c){
-       // Debug.Log("water");
+        
         if(c.tag == "Water"){inWater = true;}
     }
 
      void OnTriggerExit(Collider c){
-        // Debug.Log("no");
+        
         if(c.tag == "Water"){inWater = false;}
     }
 }
