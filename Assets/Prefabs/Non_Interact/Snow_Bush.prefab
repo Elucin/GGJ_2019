@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33232187509786648}
   - component: {fileID: 23413395809886424}
   - component: {fileID: 65210917364462144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Snow_Bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4216416514496858
 Transform:
@@ -36,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919183957239006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.8265, y: 1.86, z: 2.66}
+  m_LocalScale: {x: 0.19814, y: 0.19814, z: 0.19814}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
