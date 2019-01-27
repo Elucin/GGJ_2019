@@ -35,15 +35,8 @@ public class Movement : MonoBehaviour {
         //Check grounded
         grounded = IsGrounded();
 
-        if (grounded == false && rigidbody.velocity.y < 0)
-        {
-            Debug.Log(rigidbody.velocity.y);
-            rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y * (1 + fallMultiplier * Time.deltaTime), rigidbody.velocity.z);
-            Debug.Log(rigidbody.velocity.y);
-
-            Debug.Log("");
-
-        }
+        //if (grounded == false && rigidbody.velocity.y < 0)
+          //  rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y * (1 + fallMultiplier * Time.deltaTime), rigidbody.velocity.z);
 
 
         if (input.magnitude > 0.05f)
@@ -70,7 +63,10 @@ public class Movement : MonoBehaviour {
         //Set the velocity
         Vector3 vel = rigidbody.velocity + acceleration * direction * Time.deltaTime;
         vel = Vector3.ClampMagnitude(vel, speed);
-        vel = new Vector3(Mathf.Clamp(vel.x,-speed, speed),Mathf.Clamp(rigidbody.velocity.y,-100, speed), Mathf.Clamp(vel.z, -speed, speed));
+
+        if (grounded == false && rigidbody.velocity.y < 0)
+            vel.y = rigidbody.velocity.y * (1 + fallMultiplier * Time.deltaTime);
+
         rigidbody.velocity = vel;
 	}
 

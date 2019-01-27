@@ -229,10 +229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca0515affa22cb489c144eede833749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  acceleration: 6
-  jumpHight: 800
---- !u!54 &421961826
+  fallMultiplier: 2
+  speed: 8
+  acceleration: 10
+  jumpHight: 1500
+--- !u!54 &1228713429
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 54342724039722988, guid: cc0700b8d7f102640a87ccd0ac1a7f4f,
