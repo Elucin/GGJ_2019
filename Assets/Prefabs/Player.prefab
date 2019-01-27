@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114822880080275750}
   - component: {fileID: 82380090464706760}
   - component: {fileID: 114470338438919066}
+  - component: {fileID: 114690765330573302}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1165377135511902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -72.32, y: 9.55, z: -28.18}
+  m_LocalPosition: {x: 4.1, y: 2.86, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4270762292230002}
@@ -296,7 +297,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.379
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -480,6 +481,21 @@ MonoBehaviour:
   m_AudioEvent: {fileID: 11400000, guid: 1706938bbe0bd7844a1db0f8d998bde9, type: 2}
   playOnStart: 0
   playNow: 0
+--- !u!114 &114690765330573302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165377135511902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360522dc39a45b64fa20e1bd8791de2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Audiosource: {fileID: 82380090464706760}
+  m_AudioEvent: {fileID: 11400000, guid: eb1d30ae090c75042901e6d5af5c5893, type: 2}
+  playOnStart: 0
+  playNow: 0
 --- !u!114 &114748278437390768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -492,6 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactParticle: {fileID: 198662731203422304}
+  interactSound: {fileID: 114690765330573302}
 --- !u!114 &114822880080275750
 MonoBehaviour:
   m_ObjectHideFlags: 1

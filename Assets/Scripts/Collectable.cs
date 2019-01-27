@@ -12,6 +12,10 @@ public class Collectable : WorldObject {
 		if(!isCollected){
 			Interaction.held = this;
 			isCollected = true;
+            Outline outline = gameObject.AddComponent<Outline>();
+            outline.OutlineMode = Outline.Mode.OutlineHidden;
+            outline.OutlineColor = new Color32(0, 121, 255, 255);
+            outline.OutlineWidth = 0.5f;
 		}
 		else{
 			Drop();
@@ -23,6 +27,8 @@ public class Collectable : WorldObject {
 
 		//No longer considered to be the collected object
 		isCollected = false;
+
+        Destroy(GetComponent<Outline>());
 
 		//Toss me
 		//What?
