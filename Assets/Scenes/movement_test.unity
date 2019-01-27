@@ -229,10 +229,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1228713427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee7e4d3213287f4b9509184a935b7e6, type: 3}
+  m_Script: {fileID: 11500000, guid: d1518fd2b09b18345a6a11d44cb7be94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallMultiplier: 2
+  fallMultiplier: 1
   speed: 8
   acceleration: 10
   jumpHight: 1500
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1228713427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d40529675e972c4f9d358b1e9baa879, type: 3}
+  m_Script: {fileID: 11500000, guid: 18c75fc3d166bef479c63b89bf2fffdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1284835553
@@ -363,7 +363,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1284835553}
-  m_Mesh: {fileID: 4300000, guid: dc357c3c30ef51843b0fa45b688046c5, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 411b2cee7c159f7479bdc38325fcaf09, type: 3}
 --- !u!1 &1445611572
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,11 +450,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445611572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0d65103ca7bda48853ca8dee926a50, type: 3}
+  m_Script: {fileID: 11500000, guid: bbe59d6ba074d5247a9003f000eacd2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shiftTime: 0.6
-  staticOffset: {x: 0, y: 0, z: -15}
+  shiftTime: 1
+  staticOffset: {x: 0, y: 0, z: -20}
   dynamicOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1528886573 stripped
 GameObject:
