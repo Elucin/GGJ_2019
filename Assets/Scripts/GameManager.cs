@@ -129,11 +129,13 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Win(){
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Victory");
 		Debug.Log("You Win!");
 		return;
 	}
 	
 	public void Lose(){
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
 		Debug.Log("You Lose!");
 	}
 
