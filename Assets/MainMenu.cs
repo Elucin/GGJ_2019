@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour {
 
   private EventSystem eventSystem;
   private Button[] user_choices = new Button[4];
-  private float speed = 5.0f;
+  private float speed = 10.0f;
   private int FADE_TIME = 1;
   private float startTime = 0.0f;
   private float journeyLength = 0.0f;
@@ -120,7 +120,7 @@ public class MainMenu : MonoBehaviour {
     float distCovered = 0.0f;
     float fracJourney = 0.0f;
 
-    while(fracJourney < 0.07) {
+    while(fracJourney < 0.075) {
       yield return null;
       distCovered = (Time.time - startTime) * speed;
       fracJourney = distCovered / journeyLength;
