@@ -38,6 +38,10 @@ public class Movement : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (GameManager.instance.gameOver) {
+            return;
+        }
+
         //Get input into Vector3 for ease of use
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
