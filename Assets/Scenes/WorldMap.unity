@@ -1597,6 +1597,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1165377135511902, guid: 04d5c7442487eb74783f85d3c3305ef7, type: 2}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114124759281313408, guid: 04d5c7442487eb74783f85d3c3305ef7,
+        type: 2}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04d5c7442487eb74783f85d3c3305ef7, type: 2}
   m_IsPrefabAsset: 0
@@ -2096,7 +2105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shiftTime: 1
-  staticOffset: {x: 0, y: 0, z: -20}
+  staticOffset: {x: 0, y: 0, z: -100}
   dynamicOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &2008184719
 Prefab:
