@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour {
 		NUM_OF_STATUSES
 	}
 
-	bool gameOver = false;
+	public bool gameOver = false;
 	public static GameManager instance;
+	public GameObject house;
 	public Status ClimateObjective{
 		get{
 			return (int)Objectives.CLIMATE == 15 ? (Status)0 : (Status)objectives[(int)Objectives.CLIMATE];
@@ -132,8 +133,7 @@ public class GameManager : MonoBehaviour {
 	void Win(){
 		if(!gameOver){
 			gameOver = true;
-			UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Victory");
-			Debug.Log("You Win!");
+			StartCoroutine("DropHouse");
 		}
 		return;
 	}
@@ -161,5 +161,19 @@ public class GameManager : MonoBehaviour {
 			ThingsObjective = (Status)selection;
 		else if(MiscObjective == (Status)15)
 			MiscObjective = (Status)selection;
-	} 
+	}
+
+	IEnumerator DropHouse() {
+		float dropTime = 5.0f;
+		float time = 0;
+		Vector3 playerPosition = Movement.instance.transform.position;
+		Instantiate(house, new Vector3(playerPosition.x, 50, playerPosition.z), Quaternion.identity);
+
+		while (time < dropTime) {
+		  time += Time.deltaTime;
+		  yield return null;
+		}
+
+		UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Victory");
+	}
 }

@@ -22,7 +22,7 @@ public class WorldObject : MonoBehaviour {
 		lstWorldObjects.Remove(this);
 	}
 
-	void Start(){
+	public virtual void Start(){
 		material = GetComponent<MeshRenderer>().material;
 		material.EnableKeyword("_EmissionColor");
 		rb = GetComponent<Rigidbody>();
