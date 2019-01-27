@@ -23,6 +23,9 @@ public class Movement : MonoBehaviour {
     Camera cam;
     Vector3 camForward;
 
+    public SoundPlay dustSound;
+    public SoundPlay splashSound;
+
     bool inWater = false;
     void Start()
     {
@@ -52,8 +55,8 @@ public class Movement : MonoBehaviour {
         {
             if(grounded){
                 if(!dustParticle.isPlaying && !splashParticle.isPlaying){
-                    if(!inWater) {dustParticle.Play();}
-                    else {splashParticle.Play();}
+                    if(!inWater) {dustParticle.Play();dustSound.Play();}
+                    else {splashParticle.Play();splashSound.Play();}
                 }
             }
             collider.material.bounciness = 0;
