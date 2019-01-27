@@ -129,13 +129,13 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Win(){
-		UnityEngine.SceneManagement.SceneManager.LoadScene("Victory");
+		UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Victory");
 		Debug.Log("You Win!");
 		return;
 	}
 	
 	public void Lose(){
-		UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
+		UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Lose");
 		Debug.Log("You Lose!");
 	}
 

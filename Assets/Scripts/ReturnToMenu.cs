@@ -14,7 +14,7 @@ public class ReturnToMenu : MonoBehaviour {
 		if(waitTime>0){
 			waitTime-=Time.deltaTime;
 		}else{
-			UnityEngine.SceneManagement.SceneManager.LoadScene("Intro");
+			UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Intro");
 		}
 	}
 }
