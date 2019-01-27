@@ -8,6 +8,7 @@ public class SimpleAI : MonoBehaviour {
 	private float wanderTime = 0f;
 	private float wanderSpeed = 2f;
 	private float followSpeed = 10f;
+	protected float interestRange = 50f;
 	public bool swim = false;
 	public GameObject zone;
 	protected bool follow = false;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 public class Shepaca : SimpleAI {
-	float tameDistanceSqr = 50f; 
 	bool getApple = false;
 	Interaction player;
 	WorldObject apple;
@@ -17,7 +16,7 @@ public class Shepaca : SimpleAI {
 	public override void Update () {
 		base.Update();
 		if(Interaction.held != null){
-			if(Vector3.SqrMagnitude(transform.position - player.transform.position) < tameDistanceSqr && Interaction.held.tag == "Fruit"){
+			if(Vector3.SqrMagnitude(transform.position - player.transform.position) < interestRange && Interaction.held.tag == "Fruit"){
 				getApple = true;
 				apple = Interaction.held;
 			}
