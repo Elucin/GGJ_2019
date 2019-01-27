@@ -13074,6 +13074,28 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783a996b9aa85024c9f73591c190a0d2, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &668606014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1321437430264326, guid: 04d5c7442487eb74783f85d3c3305ef7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1062839761}
+--- !u!114 &668606018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 668606014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 0, g: 0.4764049, b: 1, a: 1}
+  outlineWidth: 0.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &668723833
 Prefab:
   m_ObjectHideFlags: 0
@@ -21199,16 +21221,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 79
       objectReference: {fileID: 0}
-    - target: {fileID: 82380090464706760, guid: 04d5c7442487eb74783f85d3c3305ef7,
-        type: 2}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0.379
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748278437390768, guid: 04d5c7442487eb74783f85d3c3305ef7,
-        type: 2}
-      propertyPath: interactSound
-      value: 
-      objectReference: {fileID: 1988637165}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04d5c7442487eb74783f85d3c3305ef7, type: 2}
   m_IsPrefabAsset: 0
@@ -37634,31 +37646,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4334955722834484, guid: e3a24d77137b7e245897124bdd078308,
     type: 2}
   m_PrefabInternal: {fileID: 275581473}
---- !u!1 &1988637164 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1165377135511902, guid: 04d5c7442487eb74783f85d3c3305ef7,
-    type: 2}
-  m_PrefabInternal: {fileID: 1062839761}
---- !u!114 &1988637165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1988637164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 360522dc39a45b64fa20e1bd8791de2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Audiosource: {fileID: 1988637166}
-  m_AudioEvent: {fileID: 11400000, guid: eb1d30ae090c75042901e6d5af5c5893, type: 2}
-  playOnStart: 0
-  playNow: 0
---- !u!82 &1988637166 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 82380090464706760, guid: 04d5c7442487eb74783f85d3c3305ef7,
-    type: 2}
-  m_PrefabInternal: {fileID: 1062839761}
 --- !u!4 &1994617063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4035593552879694, guid: d43e7c90547f13e40b3d4d5c323f183a,
