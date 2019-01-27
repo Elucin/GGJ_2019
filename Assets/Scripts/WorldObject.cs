@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldObject : MonoBehaviour {
-	private static Color HIGHLIGHT_COLOR = Color.green;
+	private static Color HIGHLIGHT_COLOR = new Color(0, .4f, 0f);
 	public static List<WorldObject> lstWorldObjects = new List<WorldObject>();
 
 	//Highlight

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interaction : MonoBehaviour {
-	float maxDistance = 1.5f;
+	float maxDistance = 1.75f;
 	public static GameObject player;
 	public static Collectable held = null;
 	// Use this for initialization
