@@ -8,6 +8,7 @@ public class PrimaryObject : WorldObject {
 	public GameObject spawnParticle;
 
 	public GameObject newObject;
+	public Mesh newModel;
 
 	public float yOffset;
 
@@ -19,12 +20,17 @@ public class PrimaryObject : WorldObject {
 	
 
 	public override void Interact(){
-		if (newObject !=null){
-			Instantiate(newObject, transform.position,Quaternion.identity);
-		}
 		Instantiate(secondaryObject, transform.position+ Vector3.up*yOffset,Quaternion.identity);
 		Instantiate(spawnParticle, transform.position,Quaternion.identity);
+		if (newObject !=null){
+			Instantiate(newObject, transform.position,Quaternion.identity);
+			Destroy(this.gameObject);
+		}
+		else if(newModel != null){
+			GetComponent<MeshFilter>().mesh = newModel;
+		}
+	
 		
-		Destroy(this.gameObject);
+		
 	}
 }

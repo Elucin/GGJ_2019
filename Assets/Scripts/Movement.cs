@@ -86,7 +86,7 @@ public class Movement : MonoBehaviour {
     }
 
     bool IsGrounded() {
-        return (Physics.BoxCast(transform.position, new Vector3(0.5f, 0.05f, 0.5f), Vector3.down, transform.rotation, 0.5f, lmTerrain, QueryTriggerInteraction.Ignore));
+        return (Physics.BoxCast(transform.position, new Vector3(0.45f, 0.05f, 0.45f), Vector3.down, transform.rotation, 0.5f, lmTerrain, QueryTriggerInteraction.Ignore));
     }
 
     IEnumerator DelayJump() {

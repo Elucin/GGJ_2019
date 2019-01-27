@@ -5,12 +5,18 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: Halen_Fisshy
+    100004: Fisshy_Halen_polySurface1
     400000: //RootNode
     400002: Halen_Fisshy
+    400004: Fisshy_Halen_polySurface1
     2100000: Halen_FisshyMat
+    2100002: Fisshy_Halen_polySurface1Mat
     2300000: Halen_Fisshy
+    2300002: Fisshy_Halen_polySurface1
     3300000: Halen_Fisshy
+    3300002: Fisshy_Halen_polySurface1
     4300000: Halen_Fisshy
+    4300002: Fisshy_Halen_polySurface1
   externalObjects:
   - first:
       type: UnityEngine:Material

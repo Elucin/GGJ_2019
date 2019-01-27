@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 54210499423526642}
   - component: {fileID: 114986289787017436}
   - component: {fileID: 65653185284327992}
+  - component: {fileID: 114076773012387000}
   m_Layer: 8
   m_Name: Itm_Fish
   m_TagString: Collectable
@@ -117,7 +118,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540711739298304}
-  m_Mesh: {fileID: 4300000, guid: a938d4c47742b5d4daf4c4db902eb8ec, type: 3}
+  m_Mesh: {fileID: 4300002, guid: a938d4c47742b5d4daf4c4db902eb8ec, type: 3}
 --- !u!54 &54210499423526642
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -143,8 +144,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17, y: 13, z: 4}
-  m_Center: {x: 0.5, y: 7.5, z: -0.5}
+  m_Size: {x: 4.89, y: 9.22, z: 16}
+  m_Center: {x: -0.5, y: 0, z: 0}
+--- !u!114 &114076773012387000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1540711739298304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a0b9f3a24e9404bbb14d41c28f7d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swim: 1
 --- !u!114 &114280409184539908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statuses: 04000000
+  remove_statuses: 
 --- !u!114 &114986289787017436
 MonoBehaviour:
   m_ObjectHideFlags: 1

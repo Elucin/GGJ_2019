@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Collectable : WorldObject {
 	private const float FORWARD_DROP_FORCE = 0f;
-	private const float FORWARD_THROW_FORCE = 8f;
-	private const float UP_FORCE = 2f;
+	private const float FORWARD_THROW_FORCE = 15f;
+	private const float UP_FORCE = 4f;
 	public bool isCollected = false;
 
 	public override void Interact(){
@@ -29,7 +29,7 @@ public class Collectable : WorldObject {
 		//I cannot jump such a distance you'll have to toss me!
 		//Uh-h-h-h... don't tell the elf.
 		//Not a word
-		rb.velocity = (transform.up * UP_FORCE + Vector3.up * Interaction.player.GetComponent<Rigidbody>().velocity.y) + Interaction.player.transform.forward * forward_force;
+		rb.AddForce((transform.up * UP_FORCE + Vector3.up * Interaction.player.GetComponent<Rigidbody>().velocity.y) + Interaction.player.transform.forward * forward_force, ForceMode.VelocityChange);
 	}
 
 	protected override void Update(){

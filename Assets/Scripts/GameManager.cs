@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public Status ClimateObjective{
 		get{
-			return (Status)objectives[(int)Objectives.CLIMATE];
+			return (int)Objectives.CLIMATE == 15 ? (Status)0 : (Status)objectives[(int)Objectives.CLIMATE];
 		}
 		set{
 			objectives[(int)Objectives.CLIMATE] = (int)value;
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour {
 	}
 	public Status TerrainObjective{
 		get{
-			return (Status)objectives[(int)Objectives.TERRAIN];
+			return (int)Objectives.TERRAIN == 15 ? (Status)4 : (Status)objectives[(int)Objectives.TERRAIN];
 		}
 		set{
 			objectives[(int)Objectives.TERRAIN] = (int)value;
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
 	}
 	public Status ThingsObjective{
 		get{
-			return (Status)objectives[(int)Objectives.THINGS];
+			return (int)Objectives.THINGS == 15 ? (Status)8 : (Status)objectives[(int)Objectives.THINGS];
 		}
 		set{
 			objectives[(int)Objectives.THINGS] = (int)value;
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
 	}
 	public Status MiscObjective{
 		get{
-			return (Status)objectives[(int)Objectives.MISC];
+			return (int)Objectives.MISC == 15 ? (Status)12 : (Status)objectives[(int)Objectives.MISC];
 		}
 		set{
 			objectives[(int)Objectives.MISC] = (int)value;
@@ -93,6 +93,10 @@ public class GameManager : MonoBehaviour {
 	}
 	[SerializeField]
 	public bool[] statuses = new bool[15];
+
+	public static bool gameHasStarted = false;
+
+	
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad(gameObject);
@@ -100,12 +104,18 @@ public class GameManager : MonoBehaviour {
 			instance = this;
 		else
 			Destroy(gameObject);
+
 		for(int i = 0; i < 15; i++){
 			statuses[i] = false;
 		}
 		for(int i = 0; i < 4; i++){
-			objectives[i] = 15;
+			if(UnityEngine.SceneManagement.SceneManager.GetActiveScene() == UnityEngine.SceneManagement.SceneManager.GetSceneByName("WorldMap")){
+				objectives[i] = i * 4;
+			}
+			else
+				objectives[i] = 15;
 		}
+		
 	}
 	
 	// Update is called once per frame
@@ -119,7 +129,7 @@ public class GameManager : MonoBehaviour {
 		Debug.Log("You Win!");
 		return;
 	}
-
+	
 	public void Lose(){
 		Debug.Log("You Lose!");
 	}

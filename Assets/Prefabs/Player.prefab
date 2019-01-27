@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Audiosource: {fileID: 82902074239542508}
-  m_AudioEvent: {fileID: 0}
+  m_AudioEvent: {fileID: 11400000, guid: 9b66dc4a852ae9849a7218d82b49a60b, type: 2}
   playOnStart: 1
   playNow: 0
 --- !u!114 &114748278437390768

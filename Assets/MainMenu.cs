@@ -34,7 +34,6 @@ public class MainMenu : MonoBehaviour {
   void Update(){
     if(changing){
         float a = (Time.time - changeTime) / 3.0f;
-        Debug.Log(a);
         Color fade_col = new Color(0, 0, 0, a);
         fade.color = fade_col;
     }
@@ -164,9 +163,15 @@ public class MainMenu : MonoBehaviour {
     }
     yield return null;
   }
-
+  IEnumerator GameStart(){
+		yield return new WaitForSeconds(3f);
+    Debug.Log("Game Start");
+		GameManager.gameHasStarted = true;
+	}
   IEnumerator ChangeScenes(string scene){
     yield return new WaitForSeconds(4f);
+    StartCoroutine(GameStart());
     UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
+    
   }
 }
