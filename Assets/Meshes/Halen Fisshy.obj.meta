@@ -21,6 +21,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Fisshy_Halen_polySurface1Mat
+    second: {fileID: 2100000, guid: 9aa09f1a29587a24bac50dc8ac5039bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Halen_FisshyMat
     second: {fileID: 2100000, guid: bf8cec24cd02e124ab387376154797f0, type: 2}
   materials:

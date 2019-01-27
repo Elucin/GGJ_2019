@@ -13,6 +13,7 @@ public class IconEnabler : MonoBehaviour {
 		canvas = GetComponent<Canvas>();
 		if(playerObjectives){
 			for(int i = 0;i<4;i++){
+				//Debug.Log(GameManager.instance);
 				icons[GameManager.instance.objectives[i]].gameObject.SetActive(true);
 			}
 		}

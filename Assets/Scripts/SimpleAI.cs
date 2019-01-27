@@ -4,25 +4,28 @@ using UnityEngine;
 using UnityEngine.AI;
 public class SimpleAI : MonoBehaviour {
 	private float wanderInterval = 10f;
-	private float wanderDistance = 3f;
+	private float wanderDistance = 20f;
 	private float wanderTime = 0f;
 	private float wanderSpeed = 2f;
 	private float followSpeed = 10f;
 	public bool swim = false;
+	public GameObject zone;
 	protected bool follow = false;
-	private NavMeshAgent navMeshAgent;
+	protected NavMeshAgent navMeshAgent;
 	Vector3 startingPos;
 	// Use this for initialization
-	void Start () {
+	public virtual void Start () {
 		//navMeshAgent = GetComponent<NavMeshAgent>();
 		NavMeshHit closestHit;
-		int layerhit = swim ? 1 << 3 : 1;
+		
+		int layerhit = swim ? NavMesh.GetAreaFromName("Swim") : 1;
+		//Debug.Log(layerhit);
 		if( NavMesh.SamplePosition(  transform.position, out closestHit, 500, layerhit ) ){
 			startingPos = transform.position = closestHit.position;
 			navMeshAgent = gameObject.AddComponent<NavMeshAgent>();
 			navMeshAgent.height = GetComponent<BoxCollider>().size.y;
 			navMeshAgent.baseOffset = 0f;
-			navMeshAgent.stoppingDistance = 0.5f;
+			navMeshAgent.stoppingDistance = 2f;
 			
 			//navMeshAgent.agentTypeID = 1;
 		}
@@ -32,11 +35,13 @@ public class SimpleAI : MonoBehaviour {
 	public virtual void Update () {
 		navMeshAgent.speed = follow ? followSpeed : wanderSpeed;
 		if(follow){
+			Follow();
+			navMeshAgent.speed = followSpeed;
 			
 			return;
 		}
 		else{
-			
+			navMeshAgent.speed = wanderSpeed;
 			if(wanderTime <= 0f){
 				Wander();
 			}
@@ -50,10 +55,15 @@ public class SimpleAI : MonoBehaviour {
 		Vector2 randomPoint = Random.insideUnitCircle * wanderDistance;
 		Vector3 wanderPoint = new Vector3(randomPoint.x, 0, randomPoint.y);
 		NavMeshHit hit;
+		navMeshAgent.stoppingDistance = 2f;
 		//Debug.DrawLine(transform.position, transform.position + wanderPoint, Color.red, Time.deltaTime);
 		if(NavMesh.SamplePosition(startingPos + wanderPoint, out hit, 5, NavMesh.AllAreas)){
 			navMeshAgent.SetDestination(hit.position);
 			wanderTime = wanderInterval + Random.Range(-3f, 3f);
 		}
+	}
+	void Follow(){
+		navMeshAgent.stoppingDistance = 5f;
+		navMeshAgent.SetDestination(Interaction.player.transform.position);
 	}
 }

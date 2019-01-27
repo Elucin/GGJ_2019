@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 65653185284327992}
   - component: {fileID: 114076773012387000}
   m_Layer: 8
-  m_Name: Itm_Fish
-  m_TagString: Collectable
+  m_Name: AI_Fish
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swim: 1
+  zone: {fileID: 0}
 --- !u!114 &114280409184539908
 MonoBehaviour:
   m_ObjectHideFlags: 1

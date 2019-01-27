@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour {
 		else
 			Destroy(gameObject);
 
-		for(int i = 0; i < 15; i++){
+		for(int i = 0; i < 14; i++){
 			statuses[i] = false;
 		}
 		for(int i = 0; i < 4; i++){
@@ -120,9 +120,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(achievedAll){
-			Win();
+		if(gameHasStarted){
+			if(achievedAll){
+				Win();
+			}
 		}
+		
 	}
 
 	void Win(){

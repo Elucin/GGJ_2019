@@ -101,9 +101,9 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
-    ledgeDropHeight: 6
-    maxJumpAcrossDistance: 3
+    agentClimb: 1.5
+    ledgeDropHeight: 10
+    maxJumpAcrossDistance: 10
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667
@@ -152,9 +152,32 @@ Prefab:
       propertyPath: m_RootOrder
       value: 27
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114986289787017436, guid: fc5c58cbd11dda7449bf1cb34bf01829, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: fc5c58cbd11dda7449bf1cb34bf01829, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &62826221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1540711739298304, guid: fc5c58cbd11dda7449bf1cb34bf01829,
+    type: 2}
+  m_PrefabInternal: {fileID: 62826220}
+--- !u!114 &62826222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62826221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73a9817977c9d847af805759451784f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondaryObject: {fileID: 1514446775695304, guid: 9f43e149a1b24d74ab66e050dc5f1616,
+    type: 2}
+  spawnParticle: {fileID: 1062839762}
+  newObject: {fileID: 0}
+  newModel: {fileID: 0}
+  yOffset: 1
 --- !u!1001 &73247312
 Prefab:
   m_ObjectHideFlags: 0
@@ -380,8 +403,8 @@ GameObject:
   m_Name: WaterPlane (2)
   m_TagString: Water
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 3
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &221726097
 MeshCollider:
@@ -515,8 +538,8 @@ GameObject:
   m_Name: WaterPlane (4)
   m_TagString: Water
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 3
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &311690888
 MeshCollider:
@@ -713,10 +736,6 @@ Prefab:
     - target: {fileID: 4155952163288390, guid: 9c4f00f853310cc4fbf3fe1e887c9006, type: 2}
       propertyPath: m_RootOrder
       value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896734095822494, guid: 9c4f00f853310cc4fbf3fe1e887c9006, type: 2}
-      propertyPath: m_Name
-      value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c4f00f853310cc4fbf3fe1e887c9006, type: 2}
@@ -957,26 +976,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 380, y: -56}
+  m_AnchoredPosition: {x: 433.6667, y: -56}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &624774581 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1580771646261970, guid: 9ce759aea6b368942a33bba27037299f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1582325774}
---- !u!114 &624774582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 624774581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baf935ba7f1316b4a91536b0c8c475e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swim: 0
 --- !u!1001 &639534228
 Prefab:
   m_ObjectHideFlags: 0
@@ -1192,16 +1194,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 54702236705873194, guid: 6ccf326b4fd60f44b87fc99fb7dbefbe,
+    - target: {fileID: 114864065046037614, guid: 6ccf326b4fd60f44b87fc99fb7dbefbe,
         type: 2}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54702236705873194, guid: 6ccf326b4fd60f44b87fc99fb7dbefbe,
-        type: 2}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: zone
+      value: 
+      objectReference: {fileID: 1246153963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ccf326b4fd60f44b87fc99fb7dbefbe, type: 2}
   m_IsPrefabAsset: 0
@@ -1649,30 +1646,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1477339604245980, guid: e22cd3a3cc8db924fa3a094f10d13389, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1830341738307152, guid: e22cd3a3cc8db924fa3a094f10d13389, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1769966881425102, guid: e22cd3a3cc8db924fa3a094f10d13389, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237109443119744, guid: e22cd3a3cc8db924fa3a094f10d13389, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293644277200094, guid: e22cd3a3cc8db924fa3a094f10d13389, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1844536271608592, guid: e22cd3a3cc8db924fa3a094f10d13389, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22cd3a3cc8db924fa3a094f10d13389, type: 2}
   m_IsPrefabAsset: 0
@@ -1775,6 +1748,16 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04d5c7442487eb74783f85d3c3305ef7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1062839762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1632553281796958, guid: 04d5c7442487eb74783f85d3c3305ef7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1062839761}
+--- !u!4 &1076775579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4014194399193292, guid: 6ccf326b4fd60f44b87fc99fb7dbefbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 761168531}
 --- !u!1001 &1128265087
 Prefab:
   m_ObjectHideFlags: 0
@@ -1952,8 +1935,8 @@ GameObject:
   m_Name: WaterPlane
   m_TagString: Water
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 3
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1239059149
 MeshCollider:
@@ -2024,6 +2007,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1246153962
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1076775579}
+    m_Modifications:
+    - target: {fileID: 4110545800518232, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110545800518232, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110545800518232, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110545800518232, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110545800518232, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110545800518232, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110545800518232, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110545800518232, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141779669853548, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cceb34237bf7b2840ab351bdb6224020, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &1246153963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1141779669853548, guid: cceb34237bf7b2840ab351bdb6224020,
+    type: 2}
+  m_PrefabInternal: {fileID: 1246153962}
 --- !u!4 &1342052771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: e2ad5a86a4e29974391139a0da3bfb6a,
@@ -2265,8 +2299,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114421114148946252, guid: 9ce759aea6b368942a33bba27037299f, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ce759aea6b368942a33bba27037299f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1602819558
@@ -2431,8 +2464,8 @@ GameObject:
   m_Name: WaterPlane (3)
   m_TagString: Water
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 3
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1691450481
 MeshCollider:
@@ -2685,17 +2718,17 @@ Prefab:
     - target: {fileID: 224608415860841784, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 210
+      value: 263.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224852969257927128, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 178.66669
       objectReference: {fileID: 0}
     - target: {fileID: 224733652620828652, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 93.66669
       objectReference: {fileID: 0}
     - target: {fileID: 224056586618085218, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
@@ -2750,52 +2783,52 @@ Prefab:
     - target: {fileID: 224056586618085218, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 550
+      value: 603.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224760718366021272, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 465
+      value: 518.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224773933724934002, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 635
+      value: 688.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224943301668877020, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 975
+      value: 1028.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224025407437590172, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 890
+      value: 943.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224693604334199176, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 720
+      value: 773.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224745322379846122, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 805
+      value: 858.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224805943398781286, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1145
+      value: 1198.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224235074252924864, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1060
+      value: 1113.6667
       objectReference: {fileID: 0}
     - target: {fileID: 224188774608490856, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1230
+      value: 1283.6667
       objectReference: {fileID: 0}
     - target: {fileID: 114556159665170154, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
@@ -2805,7 +2838,7 @@ Prefab:
     - target: {fileID: 224610736944778064, guid: a51d98fc85282a648a0831623b4e7361,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 295
+      value: 348.6667
       objectReference: {fileID: 0}
     - target: {fileID: 1400439667601914, guid: a51d98fc85282a648a0831623b4e7361, type: 2}
       propertyPath: m_IsActive
@@ -3379,8 +3412,8 @@ GameObject:
   m_Name: WaterPlane (1)
   m_TagString: Water
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 3
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &2068319005
 MeshCollider:

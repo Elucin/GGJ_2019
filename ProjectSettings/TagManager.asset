@@ -9,6 +9,7 @@ TagManager:
   - Water
   - FruitTree
   - Enemy
+  - Fruit
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Terrain
   - Zones
   - Rock
-  - 
+  - AI
   - 
   - 
   - 

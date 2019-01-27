@@ -163,14 +163,9 @@ public class MainMenu : MonoBehaviour {
     }
     yield return null;
   }
-  IEnumerator GameStart(){
-		yield return new WaitForSeconds(3f);
-    Debug.Log("Game Start");
-		GameManager.gameHasStarted = true;
-	}
   IEnumerator ChangeScenes(string scene){
     yield return new WaitForSeconds(4f);
-    StartCoroutine(GameStart());
+    GameManager.gameHasStarted = true;
     UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
     
   }

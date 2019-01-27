@@ -24,12 +24,15 @@ public class PrimaryObject : WorldObject {
 		Instantiate(spawnParticle, transform.position,Quaternion.identity);
 		if (newObject !=null){
 			Instantiate(newObject, transform.position,Quaternion.identity);
-			Destroy(this.gameObject);
 		}
 		else if(newModel != null){
 			GetComponent<MeshFilter>().mesh = newModel;
+			Destroy(this);
+			GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.black);
+			return;
 		}
-	
+
+		Destroy(this.gameObject);
 		
 		
 	}

@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour {
         collider = GetComponent<Collider>();
         cam = Camera.main;
         instance = this;
-        lmTerrain = LayerMask.GetMask("Terrain");
+        lmTerrain = LayerMask.GetMask("Terrain", "AI");
     }
 
     void FixedUpdate()

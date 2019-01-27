@@ -147,4 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e830530fefa4e4ab880c5a4d01daf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statuses: 000000000000000000000000000000
+  objectives: 00000000000000000000000000000000
+  statuses: 000000000000000000000000000001

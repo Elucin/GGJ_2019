@@ -1,26 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class Shepaca : SimpleAI {
-	float tameDistanceSqr = 9f; 
+	float tameDistanceSqr = 50f; 
+	bool getApple = false;
 	Interaction player;
+	WorldObject apple;
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+		base.Start();
 		player = Interaction.player.GetComponent<Interaction>();
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
 		base.Update();
-		if(Interaction.held.tag == "Fruit"){
-			if(Vector3.SqrMagnitude(transform.position - player.transform.position) < tameDistanceSqr){
-				follow = true;
+		if(Interaction.held != null){
+			if(Vector3.SqrMagnitude(transform.position - player.transform.position) < tameDistanceSqr && Interaction.held.tag == "Fruit"){
+				getApple = true;
+				apple = Interaction.held;
 			}
 		}
+
+		if(getApple){
+			GetApple();
+		}
+
 	}
 
-	void Follow(){
+	void GetApple(){
+		NavMeshHit hit;
+		if(NavMesh.SamplePosition(apple.transform.position, out hit, 30f, NavMesh.AllAreas))
+			navMeshAgent.SetDestination(hit.position);
+		navMeshAgent.stoppingDistance = apple == Interaction.held ? 5 : 1;
+	}
 
+	void OnCollisionEnter(Collision c){
+		if(getApple){
+			if(c.gameObject == apple.gameObject){
+				Destroy(apple.gameObject);
+				//Heart
+				follow = true;
+				getApple = false;
+				zone.SetActive(true);
+			}
+		}
+		
 	}
 }
