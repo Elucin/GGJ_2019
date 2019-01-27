@@ -6,24 +6,16 @@ public class Rock : Collectable {
 
 	 int lmTerrain;
 	bool grounded = false;
-	public override void Start(){
-		base.Start();
-		lmTerrain = LayerMask.GetMask("Terrain");
-	}
-
-	void Update(){
-		Debug.DrawLine(transform.position, transform.position + Vector3.down);
-		grounded = IsGrounded();
-	}
 
 	void OnCollisionEnter(Collision c){
+		lmTerrain = LayerMask.GetMask("Terrain");
 		if(Interaction.held == this)
 			return;
 		if(c.transform.tag == "FruitTree"){
 			c.gameObject.GetComponent<FruitTree>().DropFruit();
 			return;
 		}
-		else if(c.transform.tag == "Enemy" && !grounded){
+		else if(c.transform.tag == "Enemy" && !IsGrounded()){
 			c.gameObject.GetComponent<EnemyAI>().Kill();
 			Debug.Log("Kill");
 			return;

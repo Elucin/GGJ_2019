@@ -7,7 +7,6 @@ public class Collectable : WorldObject {
 	private const float FORWARD_THROW_FORCE = 30f;
 	private const float UP_FORCE = 15f;
 	public bool isCollected = false;
-
 	public override void Interact(){
 		if(!isCollected){
 			Interaction.held = this;
