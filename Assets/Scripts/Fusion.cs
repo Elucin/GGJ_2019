@@ -16,18 +16,17 @@ public class Fusion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-	void OnCollisionEnter(Collision c){
-		if (c.collider.name == fusionPartner.name){
-			if(!inactive){
-				Fusion f = c.gameObject.GetComponent<Fusion>();
-				f.inactive = true;
-				Fuse(c.gameObject);
+		Fusion[] logs = FindObjectsOfType<Fusion>();
+		for(int i = 0; i < logs.Length; i++){
+			if(logs[i] == this)
+				return;
+			if(Vector3.SqrMagnitude(transform.position - logs[i].transform.position) < 9f){
+				if(!inactive){
+					Fusion f = logs[i].gameObject.GetComponent<Fusion>();
+					f.inactive = true;
+					Fuse(logs[i].gameObject);
+				}
 			}
-			
-			
 		}
 	}
 

@@ -8,7 +8,8 @@ public class EnemyAI : SimpleAI {
 	public void Kill(){
 		//Set the player to safe
 		GameManager.instance.SetStatus(GameManager.Status.SAFETY);
-		if(terrorizing!=null)terrorizing.enemies.Remove(this);
+		if(terrorizing != null)
+			terrorizing.enemies.Remove(this);
 		Instantiate(deathParticle,transform.position,Quaternion.identity);
 		//Sounds + Particle Systems
 		Destroy(gameObject);
