@@ -9,6 +9,8 @@ public class PrimaryObject : WorldObject {
 
 	public GameObject newObject;
 
+	public float yOffset;
+
 	
 
 
@@ -17,11 +19,12 @@ public class PrimaryObject : WorldObject {
 	
 
 	public override void Interact(){
-		Instantiate(secondaryObject, this.transform.position,Quaternion.identity);
-		Instantiate(spawnParticle, this.transform.position,Quaternion.identity);
 		if (newObject !=null){
-			Instantiate(newObject, this.transform.position,Quaternion.identity);
+			Instantiate(newObject, transform.position,Quaternion.identity);
 		}
+		Instantiate(secondaryObject, transform.position+ Vector3.up*yOffset,Quaternion.identity);
+		Instantiate(spawnParticle, transform.position,Quaternion.identity);
+		
 		Destroy(this.gameObject);
 	}
 }

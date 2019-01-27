@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 	[SerializeField]
-	private bool[] statuses = new bool[15];
+	public bool[] statuses = new bool[15];
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad(gameObject);
