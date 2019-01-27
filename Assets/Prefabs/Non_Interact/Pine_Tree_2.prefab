@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33744885616154976}
   - component: {fileID: 23188896139874712}
   - component: {fileID: 65014756004124218}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pine_Tree_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4713597249325734
 Transform:
@@ -36,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1674274626101030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -14.618, y: 1.6399999, z: 2.2089996}
+  m_LocalScale: {x: 0.29812, y: 0.29812, z: 0.29812}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
