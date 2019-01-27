@@ -133,6 +133,7 @@ public class MainMenu : MonoBehaviour {
         break;
       case 6:
         Debug.Log("Change scenes");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
         break;
     }
   }
