@@ -235,7 +235,7 @@ MonoBehaviour:
   fallMultiplier: 2
   speed: 8
   acceleration: 10
-  jumpHight: 500
+  jumpHight: 1500
 --- !u!54 &1228713429
 Rigidbody:
   m_ObjectHideFlags: 0
